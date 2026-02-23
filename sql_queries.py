@@ -6,6 +6,7 @@ SELECT
   flight_no,
   scheduled_arrival - scheduled_departure AS duration
 FROM flights
+WHERE departure_airport = 'VKO' AND arrival_airport = 'BZK'
 ORDER BY duration ASC, scheduled_departure DESC
 LIMIT 5;
 """
@@ -28,7 +29,7 @@ SELECT
 FROM flights
 GROUP BY flight_no
 HAVING COUNT(*) < 50
-ORDER BY COUNT(*) DESC, MIN(arrival_airport) ASC
+ORDER BY count DESC
 LIMIT 3;
 """
 #  flight_no | count
